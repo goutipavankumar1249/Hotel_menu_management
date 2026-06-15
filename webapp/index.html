@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d0d0d" />
+  <title>JAMMIN JUNCTION — Bar &amp; Kitchen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===================== HOME (one scrolling page) ===================== -->
+  <div id="home" class="page">
+
+    <!-- HERO: video overlaid with logo -->
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline poster="assets/brand/hero.png">
+        <source src="assets/brand/rooftop.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-veil"></div>
+      <div class="hero-inner">
+        <p class="hero-welcome">Welcome to</p>
+        <div class="logo-plate">
+          <div class="logo-circle">
+            <img src="assets/brand/logo.jpg" alt="Jammin Junction" />
+          </div>
+          <h2 class="plate-name">JAMMIN JUNCTION</h2>
+          <p class="hero-tag">BAR &amp; KITCHEN · HYDERABAD</p>
+        </div>
+      </div>
+      <div class="scroll-hint"><span></span>scroll</div>
+    </section>
+
+    <!-- WELCOME / ABOUT -->
+    <section class="welcome">
+      <p class="script">Jammin Junction</p>
+      <h2 class="welcome-h">WHERE EVERY NIGHT IS A VIBE</h2>
+      <p id="aboutText" class="welcome-body"></p>
+    </section>
+
+    <!-- BANNER (image1.png) -->
+    <section class="banner">
+      <img src="assets/brand/hero.png" alt="Rooftop ambience" />
+      <div class="banner-cap">
+        <h3>ROOFTOP · MUSIC · COCKTAILS</h3>
+        <p>Open daily · Jubilee Hills, Hyderabad</p>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu-section" id="menuSection">
+      <div class="menu-head">
+        <span class="kicker">— OUR MENU —</span>
+        <h2>EXPLORE THE MENU</h2>
+      </div>
+
+      <!-- two pill buttons -->
+      <div id="menuToggle" class="toggle">
+        <button class="toggle-pill active" data-menu="regular">Regular Menu</button>
+        <button class="toggle-pill" data-menu="happy">Happy Hours</button>
+      </div>
+      <p id="hoursNote" class="hours-note"></p>
+
+      <!-- sliding category carousel -->
+      <div class="carousel-wrap">
+        <button class="car-arrow left" data-dir="-1" aria-label="Previous">&#8249;</button>
+        <div id="carousel" class="carousel"></div>
+        <button class="car-arrow right" data-dir="1" aria-label="Next">&#8250;</button>
+      </div>
+      <div id="dots" class="dots"></div>
+      <p class="swipe-hint">Swipe / drag to browse · tap a category to open</p>
+    </section>
+
+    <footer class="home-foot">
+      <img src="assets/brand/logo.jpg" alt="" class="foot-logo"/>
+      <p>JAMMIN JUNCTION BAR &amp; KITCHEN</p>
+      <p class="addr">1st Floor, Rd No. 82, Film Nagar, Jubilee Hills, Hyderabad — 500096</p>
+      <p class="addr">☎ 9966888641</p>
+    </footer>
+  </div>
+
+  <!-- ===================== EXPLORE-CUISINE SCREEN (overlay) ===================== -->
+  <div id="screen" class="screen hidden">
+
+    <!-- ROW 1: back + menu-type toggle (left, active shown) · search + diet filter (right) -->
+    <header class="exp-bar">
+      <div class="exp-left">
+        <button id="backBtn" class="icon-btn" aria-label="Back">&#8592;</button>
+        <div id="menuDropdown" class="dropdown">
+          <button id="ddBtn" class="dd-btn" aria-haspopup="listbox" aria-expanded="false">
+            <span class="dd-dot"></span>
+            <span id="ddLabel" class="dd-label">Regular Menu</span>
+            <span class="dd-chev">&#9662;</span>
+          </button>
+          <div id="ddMenu" class="dd-menu hidden" role="listbox">
+            <button class="dd-opt active" data-menu="regular" role="option">
+              <span>Regular Menu</span><small>All day</small>
+            </button>
+            <button class="dd-opt" data-menu="happy" role="option">
+              <span>Happy Hours</span><small>11 AM – 8 PM</small>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="exp-right">
+        <button id="searchBtn" class="icon-btn ghost" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+          </svg>
+        </button>
+        <div id="dietFilter" class="diet-filter">
+          <button class="df all on" data-d="all">All</button>
+          <button class="df veg" data-d="veg" title="Veg only"><span class="sym veg"></span></button>
+          <button class="df nonveg" data-d="nonveg" title="Non-Veg only"><span class="sym nonveg"></span></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ROW 2: main category switcher (Food / Drinks / Beverages / Desserts) -->
+    <nav id="catTabs" class="cat-tabs"></nav>
+
+    <!-- collapsible search row -->
+    <div id="searchRow" class="search-row hidden">
+      <input id="searchBox" type="search" placeholder="Search dishes & drinks…" />
+    </div>
+
+    <!-- two-pane explorer: left sub-category rail + right scrollable items -->
+    <div class="explorer">
+      <aside class="rail">
+        <div class="rail-label">EXPLORE CUISINE</div>
+        <div id="rail" class="rail-list"></div>
+      </aside>
+      <section id="items" class="items-pane"></section>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
