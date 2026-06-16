@@ -13,14 +13,6 @@
   const currentMenu = () => DATA.menus[state.menu];
   const currentCat = () => currentMenu().categories.find((c) => c.key === state.cat);
 
-  // ---------- HOME: about text ----------
-  document.getElementById('aboutText').textContent = DATA.venue.description ||
-    'Jammin Junction Bar & Kitchen is a lively hangout spot in Hyderabad.\n' +
-    'We serve delicious food paired with signature cocktails and classic drinks.\n' +
-    'Great music and vibrant vibes set the mood for every evening.\n' +
-    'Perfect for parties, casual meetups, and celebrations.\n' +
-    'Come jam with us and make every night unforgettable.';
-
   // ---------- HOME: carousel ----------
   function buildCarousel() {
     const m = currentMenu();
